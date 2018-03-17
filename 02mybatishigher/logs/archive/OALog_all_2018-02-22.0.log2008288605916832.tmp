@@ -1,0 +1,44 @@
+2018-02-22 14:55:05.314 DEBUG [main]dao.IBookDao.findAllBooks.debug:145 -==>  Preparing: select * from book 
+2018-02-22 14:55:05.372 DEBUG [main]dao.IBookDao.findAllBooks.debug:145 -==> Parameters: 
+2018-02-22 14:55:05.392 DEBUG [main]dao.IBookDao.findAllBooks.debug:145 -<==      Total: 3
+2018-02-22 15:03:16.292 DEBUG [main]dao.IBookDao.findAllBooks.debug:145 -==>  Preparing: select * from book 
+2018-02-22 15:03:16.331 DEBUG [main]dao.IBookDao.findAllBooks.debug:145 -==> Parameters: 
+2018-02-22 15:03:16.349 DEBUG [main]dao.IBookDao.findAllBooks.debug:145 -<==      Total: 3
+2018-02-22 15:25:54.794 DEBUG [main]dao.IBookDao.findAllBooks.debug:145 -==>  Preparing: select * from book 
+2018-02-22 15:25:54.833 DEBUG [main]dao.IBookDao.findAllBooks.debug:145 -==> Parameters: 
+2018-02-22 15:25:54.851 DEBUG [main]dao.IBookDao.findAllBooks.debug:145 -<==      Total: 3
+2018-02-22 15:27:26.572 DEBUG [main]dao.IBookDao.findAllBooks.debug:145 -==>  Preparing: select * from book 
+2018-02-22 15:27:26.613 DEBUG [main]dao.IBookDao.findAllBooks.debug:145 -==> Parameters: 
+2018-02-22 15:27:26.629 DEBUG [main]dao.IBookDao.findAllBooks.debug:145 -<==      Total: 3
+2018-02-22 15:41:48.160 DEBUG [main]dao.IBookDao.findAllBooks.debug:145 -==>  Preparing: select * from book 
+2018-02-22 15:41:48.206 DEBUG [main]dao.IBookDao.findAllBooks.debug:145 -==> Parameters: 
+2018-02-22 15:41:48.224 DEBUG [main]dao.IBookDao.findAllBooks.debug:145 -<==      Total: 3
+2018-02-22 15:43:22.359 DEBUG [main]dao.IBookDao.findAllBooks.debug:145 -==>  Preparing: select * from book 
+2018-02-22 15:43:22.400 DEBUG [main]dao.IBookDao.findAllBooks.debug:145 -==> Parameters: 
+2018-02-22 15:43:22.418 DEBUG [main]dao.IBookDao.findAllBooks.debug:145 -<==      Total: 3
+2018-02-22 15:47:38.053 DEBUG [main]dao.IBookDao.findAllBooks.debug:145 -==>  Preparing: select * from book 
+2018-02-22 15:47:38.099 DEBUG [main]dao.IBookDao.findAllBooks.debug:145 -==> Parameters: 
+2018-02-22 15:47:38.117 DEBUG [main]dao.IBookDao.findAllBooks.debug:145 -<==      Total: 3
+2018-02-22 15:50:19.290 DEBUG [main]dao.IBookDao.findAllBooks.debug:145 -==>  Preparing: select * from book 
+2018-02-22 15:50:19.332 DEBUG [main]dao.IBookDao.findAllBooks.debug:145 -==> Parameters: 
+2018-02-22 15:50:19.349 DEBUG [main]dao.IBookDao.findAllBooks.debug:145 -<==      Total: 3
+2018-02-22 15:50:33.017 DEBUG [main]dao.IBookDao.findAllBooks.debug:145 -==>  Preparing: select * from book 
+2018-02-22 15:50:33.068 DEBUG [main]dao.IBookDao.findAllBooks.debug:145 -==> Parameters: 
+2018-02-22 15:50:33.085 DEBUG [main]dao.IBookDao.findAllBooks.debug:145 -<==      Total: 3
+2018-02-22 15:50:57.043 DEBUG [main]dao.IBookDao.findAllBooks.debug:145 -==>  Preparing: select * from book 
+2018-02-22 15:50:57.091 DEBUG [main]dao.IBookDao.findAllBooks.debug:145 -==> Parameters: 
+2018-02-22 15:50:57.113 DEBUG [main]dao.IBookDao.findAllBooks.debug:145 -<==      Total: 3
+2018-02-22 16:19:37.507 DEBUG [main]dao.IBookDao.likeSelect.debug:145 -==>  Preparing: select * from book where bookName LIKE concat('%',?,'%') 
+2018-02-22 16:19:37.572 DEBUG [main]dao.IBookDao.likeSelect.debug:145 -==> Parameters: 四(String)
+2018-02-22 16:19:37.597 DEBUG [main]dao.IBookDao.likeSelect.debug:145 -<==      Total: 2
+2018-02-22 16:21:23.798 DEBUG [main]dao.IBookDao.likeSelect.debug:145 -==>  Preparing: select * from book where bookName LIKE '%四%' 
+2018-02-22 16:21:23.845 DEBUG [main]dao.IBookDao.likeSelect.debug:145 -==> Parameters: 
+2018-02-22 16:21:23.862 DEBUG [main]dao.IBookDao.likeSelect.debug:145 -<==      Total: 2
+2018-02-22 16:22:38.228 DEBUG [main]dao.IBookDao.likeSelect.debug:145 -==>  Preparing: select * from book where bookName LIKE '%' ? '%' 
+2018-02-22 16:22:38.271 DEBUG [main]dao.IBookDao.likeSelect.debug:145 -==> Parameters: 四(String)
+2018-02-22 16:22:38.289 DEBUG [main]dao.IBookDao.likeSelect.debug:145 -<==      Total: 2
+2018-02-22 16:24:57.868 DEBUG [main]dao.IBookDao.findAllBooks.debug:145 -==>  Preparing: select boolID,bookName,bookAuthor,bookPrice from book 
+2018-02-22 16:24:57.918 DEBUG [main]dao.IBookDao.findAllBooks.debug:145 -==> Parameters: 
+2018-02-22 16:25:18.670 DEBUG [main]dao.IBookDao.findAllBooks.debug:145 -==>  Preparing: select bookID,bookName,bookAuthor,bookPrice from book 
+2018-02-22 16:25:18.721 DEBUG [main]dao.IBookDao.findAllBooks.debug:145 -==> Parameters: 
+2018-02-22 16:25:18.750 DEBUG [main]dao.IBookDao.findAllBooks.debug:145 -<==      Total: 5

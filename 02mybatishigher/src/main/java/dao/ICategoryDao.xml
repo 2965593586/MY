@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dao.ICategoryDao">
+    <resultMap id="categoryMapper" type="Category">
+        <id column="cid" property="cid"></id>
+        <result column="cname" property="cname"></result>
+        <!--直到下一级没有东西了就停止，否则就继续线下一层找-->
+        <collection property="cates" ofType="Category" select="getChildrenByPid" column="cid"></collection>
+    </resultMap>
+    <select id="getChildrenByPid" resultMap="categoryMapper">
+        select * from category where pid=#{pid}
+    </select>
+</mapper>

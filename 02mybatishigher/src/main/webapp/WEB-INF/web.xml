@@ -1,0 +1,47 @@
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app>
+  <display-name>Archetype Created Web Application</display-name>
+    <servlet>
+        <servlet-name>UserServlet</servlet-name>
+        <servlet-class>servlet.UserServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>StuAnswerServlet</servlet-name>
+        <servlet-class>servlet.StuAnswerServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>TeacherAnswerServlet</servlet-name>
+        <servlet-class>servlet.TeacherAnswerServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ResultServlet</servlet-name>
+        <servlet-class>servlet.ResultServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UserInfoServlet</servlet-name>
+        <servlet-class>servlet.UserInfoServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+    <servlet-name>UserServlet</servlet-name>
+    <url-pattern>/servlet/UserServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>StuAnswerServlet</servlet-name>
+        <url-pattern>/servlet/StuAnswerServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+    <servlet-name>TeacherAnswerServlet</servlet-name>
+    <url-pattern>/servlet/TeacherAnswerServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ResultServlet</servlet-name>
+        <url-pattern>/servlet/ResultServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UserInfoServlet</servlet-name>
+        <url-pattern>/servlet/UserInfoServlet</url-pattern>
+    </servlet-mapping>
+</web-app>

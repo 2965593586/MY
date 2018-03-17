@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--配置bean-->
+    <bean id="A4Paper" class="demo02.paper.A4Paper"></bean>
+    <bean id="colormohe" class="demo02.mohe.ColorMohe"></bean>
+    <bean id="printer" class="demo02.printer.Printer">
+        <property name="mohe" ref="colormohe"></property>
+        <property name="paper" ref="A4Paper"></property>
+    </bean>
+</beans>

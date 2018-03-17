@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="car" class="demo02.Car">
+        <property name="name" value="兰博基尼"></property>
+    </bean>
+    <bean id="service" class="demo02.Student">
+        <property name="age" value="15"></property>
+        <property name="name" value="敖子逸"></property>
+        <property name="car" ref="car"></property>
+    </bean>
+
+</beans>

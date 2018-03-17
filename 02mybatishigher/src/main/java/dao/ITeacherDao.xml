@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dao.ITeacherDao">
+    <resultMap id="teacherMaper" type="Teacher">
+        <id column="tid" property="tid"></id>
+        <result column="tname" property="tname"></result>
+        <collection property="stus" ofType="Student">
+            <id column="sid" property="sid"></id>
+            <result column="sname" property="sname"></result>
+        </collection>
+    </resultMap>
+    <!--根据老师编号查询学生集合-->
+    <select id="findAllStudentsByTid" resultMap="teacherMaper">
+        SELECT * FROM student AS s,teacher AS t ,Teacher_Student AS ts
+        WHERE  s.`sid`=ts.`sid`
+        AND t.`tid`=ts.`tid`
+        AND t.`tid`=#{tid}
+    </select>
+
+
+</mapper>

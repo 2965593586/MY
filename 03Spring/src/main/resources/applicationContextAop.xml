@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+    <!--返回的类型只能是实现类-->
+    <bean id="dao" class="demo04.dao.HelloDaoImpl">
+    </bean>
+
+    <bean id="service" class="demo04.service.HelloServiceImpl">
+        <property name="dao" ref="dao"></property>
+    </bean>
+    <!--前置-->
+    <bean id="beforeAdvice" class="demo04.aop.LoggerBefore">
+    </bean>
+    <!--后置-->
+    <bean id="afterAdvice" class="demo04.aop.LoggerAfter">
+    </bean>
+    <!--配置aop-->
+    <aop:config>
+        <!--切点-->
+        <aop:pointcut id="mypoint" expression="execution(public void demo04.service.HelloServiceImpl.doSome())"></aop:pointcut>
+        <!--<aop:pointcut id="mypoint" expression="execution(* *..service.*.*(..))"></aop:pointcut>-->
+        <!--advice-ref:做什么样的配置，是前置还是后置
+        pointcut-ref：锁定什么样的方法规则，那个方法需要被锁定
+        -->
+        <aop:advisor advice-ref="beforeAdvice" pointcut-ref="mypoint"></aop:advisor>
+        <aop:advisor advice-ref="afterAdvice" pointcut-ref="mypoint"></aop:advisor>
+    </aop:config>
+
+</beans>

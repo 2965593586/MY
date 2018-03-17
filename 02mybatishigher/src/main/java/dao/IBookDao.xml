@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dao.IBookDao">
+    <!--sqlid-->
+    <sql id="columns">
+       bookID,bookName,bookAuthor,bookPrice
+    </sql>
+    <resultMap id="bookMapper" type="Book">
+        <id property="bookID" column="bookID"></id>
+        <!--<result property="bookName" column="bookName"></result>-->
+    </resultMap>
+
+    <select id="findAllBooks"  resultMap="bookMapper">
+        select <include refid="columns"></include> from book
+    </select>
+    <!--添加-->
+    <insert id="insert">
+        insert into book(bookName,bookAuthor,bookPrice) values(#{bookName},#{bookAuthor},#{bookPrice})
+        /*添加后返回主键列*/
+        <selectKey resultType="int" keyProperty="bookID">
+            SELECT @@IDENTITY
+        </selectKey>
+    </insert>
+    <!--删除-->
+    <delete id="del">
+        <![CDATA[delete from book where bookID=#{bookID}]]>
+    </delete>
+    <!--更新-->
+    <update id="update">
+        UPDATE book SET bookPrice=#{bookPrice} WHERE bookID=#{bookID}
+    </update>
+    <!--模糊查询第一种方法-->
+    <!--<select id="likeSelect"  resultType="Book">
+        select * from book where bookName LIKE  concat('%',#{bookName},'%')
+    </select>-->
+    <!--模糊查询第二种方法 不会防止sql注入-->
+    <!--<select id="likeSelect"  resultType="Book">
+        select * from book where bookName LIKE  '%${value}%'
+    </select>-->
+    <!--第三种方法-->
+    <select id="likeSelect"  resultType="Book">
+        select * from book where bookName LIKE  '%' #{bookName} '%'
+    </select>
+    <!--多条件查询Map-->
+    <select id="selectMultiConditionMap"  resultType="Book">
+        select * from book where bookName LIKE  '%' #{bookName} '%' AND bookPrice>#{bookPrice}
+    </select>
+    <!--多条件查询Index-->
+    <select id="selectMultiConditionIndex"  resultType="Book">
+        select * from book where bookName LIKE  '%' #{0} '%' AND bookPrice>#{1}
+    </select>
+    <!--智能标签if-->
+    <select id="findByIf" resultType="Book">
+        select * from book
+        <where>
+            <if test="bookName!=null">
+                 bookName like '%' #{bookName} '%'
+            </if>
+            <if test="bookPrice!=null">
+               bookPrice>#{bookPrice}
+            </if>
+        </where>
+    </select>
+    <!--智能标签foreach array-->
+    <select id="findByforEachArray" resultType="Book">
+        select * from book
+        <where>
+            bookID IN
+            <foreach collection="array" open="(" close=")" separator="," item="bookids">
+                #{bookids}
+            </foreach>
+        </where>
+    </select>
+    <!--智能标签foreach list-->
+    <select id="findByforEachList" resultType="Book">
+        select * from book
+        <where>
+            bookID IN
+            <foreach collection="list" open="(" close=")" separator="," item="bookids">
+                #{bookids}
+            </foreach>
+        </where>
+    </select>
+    <!--智能标签foreach list  自定义 Book-->
+    <select id="findByforEachListBook" resultType="Book">
+        select * from book
+        <where>
+            bookID IN
+            <foreach collection="list" open="(" close=")" separator="," item="booklist">
+                #{booklist.bookID}
+            </foreach>
+        </where>
+    </select>
+</mapper>

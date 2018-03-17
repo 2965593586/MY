@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+     <!--通知/增强
+    <bean id="bookservice" class="cn.my.BookServiceImpl"></bean>-->
+    <!--1.目标对象-->
+    <bean id="service" class="cn.my.Dome01.BookServiceImpl"></bean>
+   <!-- <bean id="bookService" class="cn.my.Dome01.BookServiceImpl"></bean>-->
+    <!--通知-->
+    <bean id="mybefor" class="cn.my.Dome01.mybefor"></bean>
+    <!--顾问
+    <bean id="advisor" class="org.springframework.aop.support.RegexpMethodPointcutAdvisor">
+        <property name="advice" ref="beforeAdvice"></property>
+        <property name="patterns" value=".*e.*"></property>
+    </bean>-->
+    <!--名称自动代理
+    <bean class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator">
+        <property name="beanNames" value="service,bookService"></property>
+        <property name="interceptorNames" value="advisor"></property>
+    </bean>-->
+    <!--AspectJ xml配置-->
+    <aop:config>
+        <aop:pointcut id="mypoint01" expression="execution(* *..Dome01.select(..))"></aop:pointcut>
+        <aop:pointcut id="mypoint02" expression="execution(* *..Dome01.update(..))"></aop:pointcut>
+        <aop:pointcut id="mypoint03" expression="execution(* *..Dome01.insert(..))"></aop:pointcut>
+        <!--切面-->
+        <aop:aspect ref="mybefor">
+            <aop:before method="before" pointcut-ref="mypoint01"></aop:before>
+            <aop:after-returning method="afterReturing" pointcut-ref="mypoint01"></aop:after-returning>
+            <aop:around method="around" pointcut-ref="mypoint02"></aop:around>
+            <aop:after-throwing method="throwing" pointcut-ref="mypoint03"></aop:after-throwing>
+            <aop:after method="afinally" pointcut-ref="mypoint01"></aop:after>
+        </aop:aspect>
+    </aop:config>
+</beans>

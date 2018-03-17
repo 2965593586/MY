@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dao.IEmpDao">
+    <resultMap id="empMaper" type="Emp">
+        <id column="empNo" property="empNo"></id>
+        <result property="empName" column="empName"></result>
+        <association property="dept" javaType="dept">
+            <id column="deptNo" property="deptNo"></id>
+            <result property="deptName" column="deptName"></result>
+        </association>
+    </resultMap>
+    <resultMap id="empMaperMulti" type="Emp">
+        <id column="empNo" property="empNo"></id>
+        <result property="empName" column="empName"></result>
+        <association property="dept" javaType="dept" select="selectDeptByEmpNo" column="deptNo">
+        </association>
+    </resultMap>
+    <!--查询部门和员工 单条sql语句方案-->
+    <select id="getDeptByEmpNo" resultMap="empMaper">
+        SELECT * FROM dept,emp
+        WHERE dept.`deptNo`=emp.`deptNo`
+        AND empNo=#{empNo}
+    </select>
+
+
+    <select id="selectDeptByEmpNo" resultType="Dept">
+        SELECT * FROM dept WHERE deptNo=#{deptNo}
+    </select>
+    <!--查询部门和员工 多条sql语句方案-->
+    <select id="getDeptByEmpNoMulti" resultMap="empMaperMulti">
+        SELECT * FROM emp
+        WHERE empNo=#{empNo}
+    </select>
+
+
+</mapper>

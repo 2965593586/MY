@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+    <!--现在Spring中定义一个Ink-->
+    <bean id="ink" class="demo03.ink.ColorInk"></bean>
+    <!--在Spring中定义一个Paper-->
+    <bean id="paper" class="demo03.paper.A4Paper"></bean>
+    <!--在Spring中定义一个Printer-->
+    <bean id="printer" class="demo03.printer.Printer">
+        <property name="ink" ref="ink"></property>
+        <property name="paper" ref="paper"></property>
+    </bean>
+
+
+</beans>

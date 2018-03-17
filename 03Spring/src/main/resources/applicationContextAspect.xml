@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop.xsd
+         http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+">
+    <!--1.目标对象-->
+    <bean id="service" class="demoAspectj.UserServiceImpl"></bean>
+
+    <!--2.增强/通知-->
+    <bean id="myAspectj" class="demoAspectj.MyAspectj"></bean>
+
+
+    <!-- aop配置 -->
+   <!-- <aop:config>
+        <aop:pointcut expression="execution(* demoAspectj.*.select(..))" id="doFirstPointcut"/>
+        <aop:pointcut expression="execution(* demoAspectj.*.update(..))" id="doSecondPointcut"/>
+        <aop:pointcut expression="execution(* demoAspectj.*.insert(..))" id="doThirdPointcut"/>
+        <aop:aspect ref="myAspectj">
+            <aop:before method="before" pointcut-ref="doFirstPointcut"/>
+            <aop:after-returning method="afterReturing" pointcut-ref="doSecondPointcut"/>
+            <aop:around method="around" pointcut-ref="doThirdPointcut" />
+        </aop:aspect>
+    </aop:config>-->
+    <aop:config>
+        <aop:pointcut id="doFirstPointcut" expression="execution(* demoAspectj.*.select(..))"></aop:pointcut>
+        <aop:aspect ref="myAspectj">
+            <aop:before method="before(org.aspectj.lang.JoinPoint)" pointcut-ref="doFirstPointcut"></aop:before>
+        </aop:aspect>
+    </aop:config>
+
+
+</beans>
+
+
+
+
+
+
+
+
+
+
+
+
+

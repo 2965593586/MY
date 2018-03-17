@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+    <bean id="service" class="demo12.SomeServiceImpl"></bean>
+    <bean id="methodAdvice" class="demo12.MethodAdvice"></bean>
+    <bean id="proxyService" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="target" ref="service"></property>
+        <property name="interceptorNames" value="methodAdvice"></property>
+    </bean>
+
+
+</beans>
