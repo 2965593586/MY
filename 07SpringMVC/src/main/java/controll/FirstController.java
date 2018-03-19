@@ -12,7 +12,6 @@ import javax.servlet.http.HttpServletResponse;
 public class FirstController implements Controller {
     public ModelAndView handleRequest(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) throws Exception {
         ModelAndView mv=new ModelAndView();
-        mv.addObject("你好");
         mv.setViewName("/index.jsp");
         return mv;
     }
