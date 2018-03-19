@@ -17,6 +17,7 @@
       <module>04MyBatisRe</module>
       <module>05Spring</module>
       <module>_06</module>
+      <module>07SpringMVC</module>
   </modules>
   <name>MY Maven Webapp</name>
   <url>http://maven.apache.org</url>

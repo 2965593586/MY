@@ -11,7 +11,7 @@
         <module name="03Spring" />
         <module name="04MyBatisRe" />
         <module name="05Spring" />
-        <module name="_06" />
+        <module name="07SpringMVC" />
         <module name="ExamNews" />
         <module name="supermarket" />
       </profile>
@@ -25,6 +25,7 @@
       <module name="04MyBatisRe" target="1.5" />
       <module name="04WDKBigDataEngineExamSystem" target="1.5" />
       <module name="05Spring" target="1.5" />
+      <module name="07SpringMVC" target="1.5" />
       <module name="_06" target="1.5" />
       <module name="ExamNews" target="1.5" />
       <module name="MY" target="1.5" />
